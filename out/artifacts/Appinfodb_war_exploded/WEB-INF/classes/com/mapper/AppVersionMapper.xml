@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.AppVersionMapper">
+    <resultMap id="BaseResultMap" type="com.entiey.AppVersion">
+        <!--@mbg.generated-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="appId" jdbcType="BIGINT" property="appId"/>
+        <result column="versionNo" jdbcType="VARCHAR" property="versionNo"/>
+        <result column="versionInfo" jdbcType="VARCHAR" property="versionInfo"/>
+        <result column="publishStatus" jdbcType="BIGINT" property="publishStatus"/>
+        <result column="downloadLink" jdbcType="VARCHAR" property="downloadLink"/>
+        <result column="versionSize" jdbcType="DECIMAL" property="versionSize"/>
+        <result column="createdBy" jdbcType="BIGINT" property="createdBy"/>
+        <result column="creationDate" jdbcType="TIMESTAMP" property="creationDate"/>
+        <result column="modifyBy" jdbcType="BIGINT" property="modifyBy"/>
+        <result column="modifyDate" jdbcType="TIMESTAMP" property="modifyDate"/>
+        <result column="apkLocPath" jdbcType="VARCHAR" property="apkLocPath"/>
+        <result column="apkFileName" jdbcType="VARCHAR" property="apkFileName"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, appId, versionNo, versionInfo, publishStatus, downloadLink, versionSize, createdBy,
+        creationDate, modifyBy, modifyDate, apkLocPath, apkFileName
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from app_version
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--@mbg.generated-->
+        delete from app_version
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.entiey.AppVersion" useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into app_version (appId, versionNo, versionInfo,
+        publishStatus, downloadLink, versionSize,
+        createdBy, creationDate, modifyBy,
+        modifyDate, apkLocPath, apkFileName
+        )
+        values (#{appId,jdbcType=BIGINT}, #{versionNo,jdbcType=VARCHAR}, #{versionInfo,jdbcType=VARCHAR},
+        #{publishStatus,jdbcType=BIGINT}, #{downloadLink,jdbcType=VARCHAR}, #{versionSize,jdbcType=DECIMAL},
+        #{createdBy,jdbcType=BIGINT}, #{creationDate,jdbcType=TIMESTAMP}, #{modifyBy,jdbcType=BIGINT},
+        #{modifyDate,jdbcType=TIMESTAMP}, #{apkLocPath,jdbcType=VARCHAR}, #{apkFileName,jdbcType=VARCHAR}
+        )
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.entiey.AppVersion"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into app_version
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="appId != null">
+                appId,
+            </if>
+            <if test="versionNo != null">
+                versionNo,
+            </if>
+            <if test="versionInfo != null">
+                versionInfo,
+            </if>
+            <if test="publishStatus != null">
+                publishStatus,
+            </if>
+            <if test="downloadLink != null">
+                downloadLink,
+            </if>
+            <if test="versionSize != null">
+                versionSize,
+            </if>
+            <if test="createdBy != null">
+                createdBy,
+            </if>
+            <if test="creationDate != null">
+                creationDate,
+            </if>
+            <if test="modifyBy != null">
+                modifyBy,
+            </if>
+            <if test="modifyDate != null">
+                modifyDate,
+            </if>
+            <if test="apkLocPath != null">
+                apkLocPath,
+            </if>
+            <if test="apkFileName != null">
+                apkFileName,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="appId != null">
+                #{appId,jdbcType=BIGINT},
+            </if>
+            <if test="versionNo != null">
+                #{versionNo,jdbcType=VARCHAR},
+            </if>
+            <if test="versionInfo != null">
+                #{versionInfo,jdbcType=VARCHAR},
+            </if>
+            <if test="publishStatus != null">
+                #{publishStatus,jdbcType=BIGINT},
+            </if>
+            <if test="downloadLink != null">
+                #{downloadLink,jdbcType=VARCHAR},
+            </if>
+            <if test="versionSize != null">
+                #{versionSize,jdbcType=DECIMAL},
+            </if>
+            <if test="createdBy != null">
+                #{createdBy,jdbcType=BIGINT},
+            </if>
+            <if test="creationDate != null">
+                #{creationDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyBy != null">
+                #{modifyBy,jdbcType=BIGINT},
+            </if>
+            <if test="modifyDate != null">
+                #{modifyDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="apkLocPath != null">
+                #{apkLocPath,jdbcType=VARCHAR},
+            </if>
+            <if test="apkFileName != null">
+                #{apkFileName,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.entiey.AppVersion">
+        <!--@mbg.generated-->
+        update app_version
+        <set>
+            <if test="appId != null">
+                appId = #{appId,jdbcType=BIGINT},
+            </if>
+            <if test="versionNo != null">
+                versionNo = #{versionNo,jdbcType=VARCHAR},
+            </if>
+            <if test="versionInfo != null">
+                versionInfo = #{versionInfo,jdbcType=VARCHAR},
+            </if>
+            <if test="publishStatus != null">
+                publishStatus = #{publishStatus,jdbcType=BIGINT},
+            </if>
+            <if test="downloadLink != null">
+                downloadLink = #{downloadLink,jdbcType=VARCHAR},
+            </if>
+            <if test="versionSize != null">
+                versionSize = #{versionSize,jdbcType=DECIMAL},
+            </if>
+            <if test="createdBy != null">
+                createdBy = #{createdBy,jdbcType=BIGINT},
+            </if>
+            <if test="creationDate != null">
+                creationDate = #{creationDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyBy != null">
+                modifyBy = #{modifyBy,jdbcType=BIGINT},
+            </if>
+            <if test="modifyDate != null">
+                modifyDate = #{modifyDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="apkLocPath != null">
+                apkLocPath = #{apkLocPath,jdbcType=VARCHAR},
+            </if>
+            <if test="apkFileName != null">
+                apkFileName = #{apkFileName,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.entiey.AppVersion">
+        <!--@mbg.generated-->
+        update app_version
+        set appId = #{appId,jdbcType=BIGINT},
+        versionNo = #{versionNo,jdbcType=VARCHAR},
+        versionInfo = #{versionInfo,jdbcType=VARCHAR},
+        publishStatus = #{publishStatus,jdbcType=BIGINT},
+        downloadLink = #{downloadLink,jdbcType=VARCHAR},
+        versionSize = #{versionSize,jdbcType=DECIMAL},
+        createdBy = #{createdBy,jdbcType=BIGINT},
+        creationDate = #{creationDate,jdbcType=TIMESTAMP},
+        modifyBy = #{modifyBy,jdbcType=BIGINT},
+        modifyDate = #{modifyDate,jdbcType=TIMESTAMP},
+        apkLocPath = #{apkLocPath,jdbcType=VARCHAR},
+        apkFileName = #{apkFileName,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <!--auto generated by MybatisCodeHelper on 2019-08-06-->
+    <select id="getAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from app_version
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2019-08-06-->
+    <select id="getAllByAppId" resultMap="BaseResultMap1">
+        SELECT
+        `appId`,`softwareName`,versionNo,`versionInfo`,v.`versionSize`,d.`valueName`,v.`downloadLink`,v.`modifyDate`,v.apkFileName
+        FROM `app_version` v,`app_info` i,`data_dictionary` d
+        WHERE v.`appId`=i.`id` AND d.`typeCode`='PUBLISH_STATUS' AND v.`publishStatus`=d.`valueId`
+        <if test="appId != null">
+            and appId=#{appId,jdbcType=BIGINT}
+        </if>
+    </select>
+
+    <resultMap id="BaseResultMap1" type="com.entiey.AppVersion">
+        <!--@mbg.generated-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="appId" jdbcType="BIGINT" property="appId"/>
+        <result column="versionNo" jdbcType="VARCHAR" property="versionNo"/>
+        <result column="versionInfo" jdbcType="VARCHAR" property="versionInfo"/>
+        <result column="publishStatus" jdbcType="BIGINT" property="publishStatus"/>
+        <result column="downloadLink" jdbcType="VARCHAR" property="downloadLink"/>
+        <result column="versionSize" jdbcType="DECIMAL" property="versionSize"/>
+        <result column="createdBy" jdbcType="BIGINT" property="createdBy"/>
+        <result column="creationDate" jdbcType="TIMESTAMP" property="creationDate"/>
+        <result column="modifyBy" jdbcType="BIGINT" property="modifyBy"/>
+        <result column="modifyDate" jdbcType="TIMESTAMP" property="modifyDate"/>
+        <result column="apkLocPath" jdbcType="VARCHAR" property="apkLocPath"/>
+        <result column="apkFileName" jdbcType="VARCHAR" property="apkFileName"/>
+        <result column="softwareName" jdbcType="VARCHAR" property="appName"/>
+        <result column="valueName" jdbcType="VARCHAR" property="publishStatusName"/>
+    </resultMap>
+
+    <!--auto generated by MybatisCodeHelper on 2019-08-08-->
+    <delete id="deleteByAppId">
+        delete from app_version
+        where 1=1
+        <if test="appId != null">
+            and appId=#{appId,jdbcType=BIGINT}
+        </if>
+    </delete>
+
+
+    <!--auto generated by MybatisCodeHelper on 2019-08-06-->
+</mapper>
