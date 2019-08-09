@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
 public class BackendLoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
-        //获取Session
+        //获取Session 嘘嘘嘘
         HttpSession session = httpServletRequest.getSession();
         BackendUser backendUser = (BackendUser) session.getAttribute("userSession");
         if (backendUser != null) {
